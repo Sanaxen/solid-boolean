@@ -1,0 +1,249 @@
+■ソリッド集合演算DLL(csg_solid_modeller.dll)
+
+ソリッドのブーリアン演算（集合演算）を簡単に行うDLLライブラリ。
+※並列処理（OpenMP）とSSE2を利用しています。
+
+
+ファイル
+csg_solid_modeller.h
+csg_solid_modeller.lib
+csg_solid_modeller.dll
+
+必要な開発環境
+WindowsXP/Windows7 32bit/64bit 
+VisualStudio2010, BorlandC++Builder5
+※csg_solid_modeller.libを使わないならDLLを扱える環境ならなんでも良いはず。
+
+
+開発に必要な設定
+プロジェクトの設定は通常のDLLを扱う開発と同じ。
+インクルードファイルの設定
+プロジェクトのプロパティー->構成プロパティー->C/C++->全般->「追加のインクルードディレクトリ」に
+csg_solid_modeller.hがある場所を設定。
+
+ライブラリの設定
+プロジェクトのプロパティー->構成プロパティー->リンカー->全般->「追加のライブラリディレクトリ」に
+csg_solid_modeller.libがある場所を設定。
+
+プロジェクトのプロパティー->構成プロパティー->リンカー->入力->「追加の依存ファイル」に
+csg_solid_modeller.libを設定。
+
+■使用方法
+初期化と終了処理の間で様々なソリッド生成、集合演算を行う。
+//ソリッド集合演算ライブラリ初期化
+void*  uad_double_library = uad_double_library_Init();
+
+//ソリッド集合演算
+・・・
+
+//ソリッド集合演算ライブラリ終了
+uad_double_library_Term( uad_double_library );
+
+
+
+
+int main( int argc, char** argv)
+{
+	void* p = uad_double_library_Init();
+
+	//ソリッド集合演算
+	//・・・
+
+	uad_double_library_Term(p);
+
+	return 0;
+}
+
+並列処理（OpenMP）について
+9コアを超える計算は行いません。並列数を制限する場合は以下のように設定してください。
+
+int main( int argc, char** argv)
+{
+	omp_set_num_threads(7);
+	printf("OpenMP : Enabled (Max # of threads = %d\n", omp_get_max_threads());
+
+	void* p = uad_double_library_Init();
+
+
+	//ソリッド集合演算
+	//・・・
+
+	uad_double_library_Term(p);
+
+	return 0;
+}
+
+
+■ソリッドデータ型
+csgSolid*
+
+■ソリッドの生成
+obj形式のソリッドを読み込む
+csgSolid* LoadSolid(char* filename);
+
+obj形式は三角形の形式、つまり ３頂点毎の形式です。
+
+
+頂点配列から読み込む
+csgSolid* CreateSolid(int num, int* index, int vrtnum, float* vertex, int* color)
+num 頂点インデックス数
+index 頂点インデックス列
+vrtnum 頂点数
+vertex 頂点データでXYZ座標値の順で並んでいる。
+ 0 <= i < vrtnum
+ vertex[3*i], vertex[3*i+1], vertex[3*i+2]
+color　頂点毎の色(RGB)列) ２４ビットを８ビット毎にR,G,Bを設定した整数値
+		color = r << 16;
+		color |= (g << 8);
+		color |= b;
+
+		r = (color & 0xff0000) >> 16;
+		g = (color & 0x00ff00) >> 8;
+		b = (color & 0x0000ff);
+
+球
+csgSolid* SolidSphere( float radius, int slices, int stacks );
+radius　球の半径。この値は 0.0f 以上である必要があります。
+slices　主軸を回転軸としたスライスの数（経線で分割された領域の数）。
+stacks　主軸に沿ったスタックの数（緯線で分割された領域の数）。
+
+円錐
+csgSolid* SolidCone( float base, float height, int slices, int stacks );
+base　半径
+height　高さ
+slices　主軸を回転軸としたスライスの数（経線で分割された領域の数）。
+stacks　主軸に沿ったスタックの数（緯線で分割された領域の数）。
+
+立方体
+csgSolid* SolidCube( float width );
+重心(0,0,0)の１辺widthの正６面体
+
+csgSolid* SolidCube1( float org[3], float width );
+重心(org[0],org[1],org[2])の１辺widthの正６面体
+
+csgSolid* SolidCube2( float minA[3], float maxA[3], int n );
+MinMaxBoxの頂点が(minA[0],minA[1],minA[2])、(maxA[0],maxA[1],maxA[2])の６面体で
+nxnxn個の立方体で構成したソリッド
+
+csgSolid* SolidCube3( float minA[3], float lenth[3], int n );
+MinMaxBoxのMin頂点が(minA[0],minA[1],minA[2])で各辺の長さが、(lenth[0],lenth[1],lenth[2])の６面体で
+nxnxn個の立方体で構成したソリッド
+
+円柱台
+csgSolid* SolidCylinder( float base, float height, int slices, int stacks );
+半径baseで高さheightの円柱
+slices　主軸を回転軸としたスライスの数（経線で分割された領域の数）。
+stacks　主軸に沿ったスタックの数（緯線で分割された領域の数）。
+
+円柱台
+csgSolid* SolidCylinder2( float base, float base2, float height, int slices, int stacks );
+半径baseで先端切り取り位置の半径がbase2の高さheightの円柱
+slices　主軸を回転軸としたスライスの数（経線で分割された領域の数）。
+stacks　主軸に沿ったスタックの数（緯線で分割された領域の数）。
+
+トーラス
+csgSolid* SolidTorus( float dInnerRadius, float dOuterRadius, int nSides, int nRings );
+内半径dInnerRadius、外半径dOuterRadiusのトーラスで
+nSides　横断面の辺の数
+nRings　トーラスに含まれるリングの数
+
+
+
+■ソリッドの編集
+移動
+void SolidTranslate(csgSolid* solid, float t[3] );
+ベクトル(t[0], t[1], t[2]) へsolidを移動する
+
+サイズ変更
+void SolidScale(csgSolid* solid, float scale[3] );
+solidのサイズを(scale[0], scale[1], scale[2]) 倍する
+
+回転
+void SolidRotate(csgSolid* solid, float axis[3] );
+solidを回転させる。
+Z軸を(axis[0], axis[1], axis[2])ベクトル方向に向ける回転を行う
+
+回転
+void SolidRotateAnyAxis(csgSolid* solid, float p1[3], float p2[3], float angle );
+solidを回転させる。
+(p1[0], p1[1], p1[2])->(p2[0], p2[1], p2[2])ベクトルを角度angle（ラジアン）回転を行う
+
+コピー
+csgSolid* SolidCopy( csgSolid* solid_base );
+ソリッドsolid_baseをコピーして新たなソリッドを作成する。
+
+削除
+void DeleteSolid(csgSolid* solid );
+solidを削除する（メモリの解放を行う）
+
+簡易化
+void SimplifySolid(csgSolid* solid);
+solidの重複頂点をマージしてデータ量を削減する
+
+色の変更
+void SolidColor( csgSolid* solid_base, int r, int g, int b );
+solid_baseの色をRGB=(r,g,b)に変更する。
+
+
+ソリッドに識別子をつける
+void SolidName( csgSolid* solid_base, int name );
+
+
+ソリッドの識別子を得る
+int GetSolidName( csgSolid* solid_base );
+
+
+■集合演算
+
+演算前準備（集合演算モデラの作成）
+ csgBooleanModeller* CreateSolidModeller(csgSolid* solid1, csgSolid* solid2, int* time_out);
+ solid1とsolid2の集合演算を行う前準備を行う。
+ time_outは
+ 処理が正常終了の場合　0
+ エラーの場合は -1
+ タイムアウトの場合は -2 
+ が設定されて返る。
+ 
+集合演算モデラの削除
+void DeleteSolidModeller(csgBooleanModeller* Modeller); 
+ 
+和演算
+csgSolid* CreateSolidModeller_Union(csgBooleanModeller* Modeller); 
+和演算の結果となるソリッドを返す。
+ 
+積演算
+csgSolid* CreateSolidModeller_Intersection(csgBooleanModeller* Modeller); 
+積演算の結果となるソリッドを返す。
+ 
+差演算
+csgSolid* CreateSolidModeller_Difference(csgBooleanModeller* Modeller); 
+差演算の結果となるソリッドを返す。
+
+ 
+void SolidVertexBuffer(csgSolid* solid , int* num, int** index, int* vrtnum, float** vertex, int** vertex_color);
+solidの頂点配列を取得する
+ 
+num 頂点インデックス数
+index 頂点インデックス列
+vrtnum 頂点数
+vertex 頂点データでXYZ座標値の順で並んでいる。
+ 0 <= i < vrtnum
+ vertex[3*i], vertex[3*i+1], vertex[3*i+2]
+color　頂点毎の色(RGB)列) ２４ビットを８ビット毎にR,G,Bを設定した整数値
+
+void DeleteSolidVertexBuffer(int* index, float* vertex, int* vertex_color);
+SolidVertexBufferで取得した頂点配列を解放する。
+
+ソリッドの保存
+void SaveSolid(csgSolid* solid, char* filename);
+solidをファイルfilenameで保存する。
+obj形式は三角形の形式、つまり ３頂点毎の形式です。
+
+色の変換
+int RGBToSolidColor(csgSolid* solid, int r, int g, int b);
+カラーコードをRGB=(r,g,b)に変更する
+
+void SolidColorToRGB(csgSolid* solid, int color, int* r, int* g, int* b);
+RGB=(r,g,b)からカラーコードを取得する。
+
+
