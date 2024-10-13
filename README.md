@@ -1,16 +1,15 @@
 # **csg**  
 ## Boolean operations on polygon meshes  
-Boolean operations on 3D models (objects) are very difficult: I tried using meshlab, VTK, CGAL, and other well-known tools, but nothing works or in some cases crashes during execution if it depends on the correctness of the model topology.
+Boolean operations on 3D models (objects) are very difficult: I tried meshlab, VTK, CGAL, and other well-known tools, but nothing worked, and in some cases, depending on the correctness of the model topology, it crashed during execution.
 
-We thought it would be less restrictive and more stable to use only the simple structure of a set of triangles as an object, but we encountered cases where numerical calculations broke down. To avoid this, we attempted to use high precision instead of double precision.
+We thought it would be less restrictive and more stable to use only the simple structure of a set of triangles as an object (*1), but we encountered cases where numerical calculations broke down. To avoid this, we decided to use high precision (double-double precision, quad-double precision) instead of double precision.
 
-Although the algorithm was double-precision (double), there was already a similar algorithm with a high degree of completion. *1
-The same result was obtained by modifying it to high precision, so we made improvements based on this algorithm. The most troublesome case, however, is when triangles are attached to each other. The most troublesome case is when the triangles are attached to each other, which can be avoided by tilting the triangles slightly (10^-12) so that they intersect.
-Otherwise, avoid the problem and try again.
+The algorithm was double precision (double), but there was already a similar algorithm with a high degree of completion. *2
+Modifying it to high precision (double-double or quad-double double precision) gave the same results, so we made improvements based on this algorithm. The most troublesome case, however, was when triangles were attached to each other, which could be avoided by tilting the object slightly (10^-12) so that the triangles intersected. The original idea was that if the precision of the object was float or double, then changing this shape could be seen as not changing the shape of the object, so a high precision (double-double or quad-double) calculation prevented the triangles from sticking to each other. Thus, a mechanism to avoid the problem and try again is introduced without deep thought.
 
-This is not problem solving, but problem avoidance, and although the processing speed is considerably reduced when retry processing is involved, boolean operations can be performed with confidence on a wide variety of objects.
+This is problem avoidance rather than problem solving, and although the processing speed of retries is considerably slower, it allows boolean operations to be performed with confidence on a wide variety of objects.  
 
-*1)  The original was written in Java and is in the public domain. Author Danilo Balby
+*2)  The original was written in Java and is in the public domain. Author Danilo Balby
 https://sourceforge.net/projects/unbboolean/
  
 http://createuniverses.blogspot.com/2008/09/constructive-solid-geometry-program.html  
@@ -19,7 +18,7 @@ A C++ port of the J3DBool library, an application that demonstrates the algorith
 Many of the improvements I have made are in the use of QD (double precision), enhanced triangulation, and enhanced intersection determination.
 
 ---
-## algorithm   
+## algorithm   (*1)
 The algorithm is outlined as follows
 All triangles of one object are sliced with all triangles of the other object and vice versa.
 Once this is done, all triangles are classified as inside or outside of the other object.
