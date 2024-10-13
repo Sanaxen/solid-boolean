@@ -1,6 +1,16 @@
 # **csg**  
 ## Boolean operations on polygon meshes  
-The original was written in Java and is in the public domain. Author Danilo Balby
+Boolean operations on 3D models (objects) are very difficult: I tried using meshlab, VTK, CGAL, and other well-known tools, but nothing works or in some cases crashes during execution if it depends on the correctness of the model topology.
+
+We thought it would be less restrictive and more stable to use only the simple structure of a set of triangles as an object, but we encountered cases where numerical calculations broke down. To avoid this, we attempted to use high precision instead of double precision.
+
+Although the algorithm was double-precision (double), there was already a similar algorithm with a high degree of completion. *1
+The same result was obtained by modifying it to high precision, so we made improvements based on this algorithm. The most troublesome case, however, is when triangles are attached to each other. The most troublesome case is when the triangles are attached to each other, which can be avoided by tilting the triangles slightly (10^-12) so that they intersect.
+Otherwise, avoid the problem and try again.
+
+This is not problem solving, but problem avoidance, and although the processing speed is considerably reduced when retry processing is involved, boolean operations can be performed with confidence on a wide variety of objects.
+
+*1)  The original was written in Java and is in the public domain. Author Danilo Balby
 https://sourceforge.net/projects/unbboolean/
  
 http://createuniverses.blogspot.com/2008/09/constructive-solid-geometry-program.html  
