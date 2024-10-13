@@ -8,10 +8,21 @@ A C++ port of the J3DBool library, an application that demonstrates the algorith
 
 Many of the improvements I have made are in the use of QD (double precision), enhanced triangulation, and enhanced intersection determination.
 
+---
+## algorithm   
+The algorithm is outlined as follows
+All triangles of one object are sliced with all triangles of the other object and vice versa.
+Once this is done, all triangles are classified as inside or outside of the other object.
+Determining whether inside or outside can be done by using ray tracing to compare the ray from 
+the normal direction of one triangle with the normal of the triangle of the other object that the ray will hit first.
+If the ray hits nowhere, it is outside; 
+if it does not hit in the same direction as the normal of the other object, it is inside.  
+
 ---  
-# Overlapping areas make calculations very difficult
+## Overlapping areas make calculations very difficult
 However, the calculation itself completes normally without abnormal termination.
-The output looks correct, but upon closer inspection, the mesh topology is quite broken.
+The output looks correct, but upon closer inspection, the mesh topology is quite broken.  
+
 <img src=./images/image01.png width=80%>
 <img src=./images/image02.png width=80%>
 <img src=./images/image03.png width=80%>
