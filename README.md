@@ -23,4 +23,15 @@ The output looks correct, but upon closer inspection, the mesh topology is quite
 
 ---
 On the other hand, without duplication, very powerful boolean calculations can be performed without failure.
-This is largely due to the accuracy provided by the QD library I added and the persistent retrying of calculations.
+This is largely due to the accuracy provided by the QD library I added and the persistent retrying of calculations.  
+
+The calculation speed may be extremely slow under some conditions because of the many retries that may be performed.
+
+The example (sample) below is applied to a cutting simulation.
+It is an image obtained by sequentially performing boolean operations on the material and cutting tool geometry.
+
+<img src=./images/sim20120524.gif width=40%>
+<img src=./images/sim2.gif width=40%>
+
+This calculation usually takes about a week.
+Thus, it is not real-time at all, and practical problems remain.
