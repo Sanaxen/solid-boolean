@@ -1,0 +1,7 @@
+USEUNIT("..\qd_2.3.4_windll\tests\pslq_test.cpp");
+USEUNIT("..\qd_2.3.4_windll\tests\tictoc.cpp");
+USELIB("lib\qd_static.lib");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+main

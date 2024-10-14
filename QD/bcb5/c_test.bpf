@@ -1,0 +1,6 @@
+USEUNIT("..\qd-2.3.4-windll\tests\c_test.c");
+USELIB("lib\qd.lib");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+main

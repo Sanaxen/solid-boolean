@@ -164,7 +164,7 @@ copy .\Release\csg_solid_modeller.dll ..\ReleaseDLL
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>..\..\QD\qd_2.3.4_windll\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\QD\qd_2.3.4_windll\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>QD_STATIC;WIN32;_STLP_NO_IOSTREAMS=1;_STLP_NO_THREADS;NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
@@ -181,7 +181,7 @@ copy .\Release\csg_solid_modeller.dll ..\ReleaseDLL
     </ClCompile>
     <Link>
       <AdditionalDependencies>qd.lib;kdtree.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\QD\qd_2.3.4_windll\x64\static_release;.\kdtree\kdtree\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\QD\qd_2.3.4_windll\x64\static_release;.\kdtree\kdtree\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>

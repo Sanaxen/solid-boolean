@@ -645,6 +645,11 @@ int Object3D::splitFaces(Object3D * object, const int extend_numFacesMax_Num)
 					//‘O‰ñ‚©‚ç‘‚¦‚½Face‚ğ‘ÎÛ‚Éd•¡Face‚ğíœ‚·‚é
 					remove_num = DuplicateFaceRemove(0, 0, pre_num, pre_num, post_num, tolP);
 				}
+				if (remove_num < 0)
+				{
+					stat = -3;
+					break;
+				}
 				int rest_num = RestFaceCount(i+1, post_num);
 
 				printf("%s i=%d start=%d end=%d (rest %d)\n", (dup_checkAll)?"*":" ", i, startIndex, cuttingFaceNum-1, rest_num);
@@ -855,11 +860,27 @@ int Object3D::DuplicateFaceRemove(const int call_marker, const int is, const int
 	int ts = GetTickCount();
 	int remove_num = 0;
 
+	printf("DuplicateFaceRemove start\n");
+	fflush(stdout);
+
 	mlFloat tol = DUP_FACE_TOL2;
 
-	if ( chktol )
+	if (chktol)
 	{
 		tol = *chktol;
+	}
+	printf("is:%d  ie:%d %d\n", is, ie, ie - is);
+	fflush(stdout);
+	printf("js:%d  je:%d %d\n", js, je, je - js);
+	printf("total loop:%d\n", (ie - is) * (je - js));
+	printf("faces:%d\n", faces->GetSize());
+	fflush(stdout);
+
+	int max_ = 10000000;
+	if ((ie - is) > max_ || (je - js) > max_ || (ie - is) * (je - js) < 0)
+	{
+		printf("total loop limit!!\n");
+		return -1;
 	}
 
 	for ( int j = is; j < ie; j++ )
@@ -889,6 +910,8 @@ int Object3D::DuplicateFaceRemove(const int call_marker, const int is, const int
 	}
 	//if ( remove_num )printf("[%d] remove_duplicates %d pre %d post %d->%d\n", call_marker, remove_num, pre_num, post_num, post_num-remove_num);
 	printf("delete duplicate Face[%d]...[%dms]\n\n", remove_num, GetTickCount()-ts);
+	fflush(stdout);
+	printf("DuplicateFaceRemove end\n");
 	fflush(stdout);
 
 	return remove_num;

@@ -105,6 +105,8 @@ BooleanModeller::BooleanModeller(Solid * solid1, Solid * solid2)
 	std::mt19937 mt;
 	std::uniform_real_distribution<double> d_rand(-1.0, 1.0);
 
+	bool special_case = false;
+
 	int ts = GetTickCount();
 	{
 		mlVector3D eps_trans;
@@ -188,7 +190,15 @@ BooleanModeller::BooleanModeller(Solid * solid1, Solid * solid2)
 			stat1 = m_pObject1->splitFaces(m_pObject2, extend_numFacesMax_Num);
 			printf("split end.\n");
 
-			if ( stat1 < 0 )
+			if (stat1 == -3 || stat2 == -3)
+			{
+				//if (retry_case == 1 && retry == 2)
+				{
+					special_case = true;
+				}
+			}
+
+			if ( stat1 < 0 && !special_case)
 			{
 				error_obj_id = 1;
 				printf("切断エラー(%d)\n", error_obj_id);
@@ -206,7 +216,7 @@ BooleanModeller::BooleanModeller(Solid * solid1, Solid * solid2)
 				return;
 			}
 
-			if ( stat1 < 0 )
+			if ( stat1 < 0 && !special_case)
 			{
 				extend_numFacesMax_Num += 10;
 				//最初のリトライパタンでリトライ回数を超えた
@@ -277,7 +287,15 @@ BooleanModeller::BooleanModeller(Solid * solid1, Solid * solid2)
 			stat2 = m_pObject2->splitFaces(m_pObject1, extend_numFacesMax_Num);
 			printf("split end.\n");
 
-			if ( stat2 < 0 )
+			if (stat1 == -3 || stat2 == -3)
+			{
+				//if (retry_case == 1 && retry == 2)
+				{
+					special_case = true;
+				}
+			}
+
+			if ( stat2 < 0 && !special_case)
 			{
 				error_obj_id = 2;
 				printf("切断エラー(%d)\n", error_obj_id);
@@ -296,7 +314,7 @@ BooleanModeller::BooleanModeller(Solid * solid1, Solid * solid2)
 				return;
 			}
 
-			if ( stat2 < 0 )
+			if ( stat2 < 0 && !special_case)
 			{
 				extend_numFacesMax_Num += 10;
 				printf("リトライ:%d\n", retry);
@@ -363,7 +381,13 @@ BooleanModeller::BooleanModeller(Solid * solid1, Solid * solid2)
 		if ( solid2_new ) delete solid2_new;
 	}
 	printf("split the faces end.\n");
-
+	if (special_case)
+	{
+		printf("The program was interrupted due to numerous cases of triangle cutting that could not be done correctly.\n"
+			"Completely identical or partially overlapping triangles\n"
+			"Cutting near the edge of a triangle\n"
+			"There are a large number of cases where cutting cannot be performed, such as\n");
+	}
 
 	//classify faces as being inside or outside the other solid
 

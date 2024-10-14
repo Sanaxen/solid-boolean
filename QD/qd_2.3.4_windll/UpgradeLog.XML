@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="qd">
+</Property><Property Name="ソリューション ファイル" Value="C:\usr\QD\qd_2.3.4_windll\qd.sln">
+</Property><Property Name="ユーザー オプション ファイル" Value="C:\usr\QD\qd_2.3.4_windll\qd.suo">
+</Property><Property Name="Date" Value="2011年9月18日">
+</Property><Property Name="Time" Value="15:35">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="qd.sln" Description="ファイルは正常に C:\usr\QD\qd_2.3.4_windll\qd.sln.old としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="" Source="qd.suo" Description="ファイルは正常に C:\usr\QD\qd_2.3.4_windll\qd.suo.old としてバックアップされました。">
+</Event><Event ErrorLevel="0" Project="qd" Source="qd.vcproj" Description="Converting project file 'C:\usr\QD\qd_2.3.4_windll\qd.vcproj'.">
+</Event><Event ErrorLevel="1" Project="qd" Source="qd.vcproj" Description="This application has been updated to include settings related to the User Account Control (UAC) feature of Windows Vista. By default, when run on Windows Vista with UAC enabled, this application is marked to run with the same privileges as the process that launched it. This marking also disables the application from running with virtualization. You can change UAC related settings from the Property Pages of the project.">
+</Event><Event ErrorLevel="1" Project="qd" Source="qd.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="qd" Source="qd.vcproj" Description="Web deployment to the local IIS server is no longer supported. The Web Deployment build tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="qd" Source="qd.vcproj" Description="Done converting to new project file 'C:\usr\QD\qd_2.3.4_windll\qd.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="qd" Source="qd.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="qd_test" Source="qd_test.vcproj" Description="Converting project file 'C:\usr\QD\qd_2.3.4_windll\qd_test.vcproj'.">
+</Event><Event ErrorLevel="1" Project="qd_test" Source="qd_test.vcproj" Description="This application has been updated to include settings related to the User Account Control (UAC) feature of Windows Vista. By default, when run on Windows Vista with UAC enabled, this application is marked to run with the same privileges as the process that launched it. This marking also disables the application from running with virtualization. You can change UAC related settings from the Property Pages of the project.">
+</Event><Event ErrorLevel="1" Project="qd_test" Source="qd_test.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="qd_test" Source="qd_test.vcproj" Description="Web deployment to the local IIS server is no longer supported. The Web Deployment build tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="qd_test" Source="qd_test.vcproj" Description="Done converting to new project file 'C:\usr\QD\qd_2.3.4_windll\qd_test.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="qd_test" Source="qd_test.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="qd_timer" Source="qd_timer.vcproj" Description="Converting project file 'C:\usr\QD\qd_2.3.4_windll\qd_timer.vcproj'.">
+</Event><Event ErrorLevel="1" Project="qd_timer" Source="qd_timer.vcproj" Description="This application has been updated to include settings related to the User Account Control (UAC) feature of Windows Vista. By default, when run on Windows Vista with UAC enabled, this application is marked to run with the same privileges as the process that launched it. This marking also disables the application from running with virtualization. You can change UAC related settings from the Property Pages of the project.">
+</Event><Event ErrorLevel="1" Project="qd_timer" Source="qd_timer.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="qd_timer" Source="qd_timer.vcproj" Description="Web deployment to the local IIS server is no longer supported. The Web Deployment build tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="qd_timer" Source="qd_timer.vcproj" Description="Done converting to new project file 'C:\usr\QD\qd_2.3.4_windll\qd_timer.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="qd_timer" Source="qd_timer.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="pslq_test" Source="pslq_test.vcproj" Description="Converting project file 'C:\usr\QD\qd_2.3.4_windll\pslq_test.vcproj'.">
+</Event><Event ErrorLevel="1" Project="pslq_test" Source="pslq_test.vcproj" Description="This application has been updated to include settings related to the User Account Control (UAC) feature of Windows Vista. By default, when run on Windows Vista with UAC enabled, this application is marked to run with the same privileges as the process that launched it. This marking also disables the application from running with virtualization. You can change UAC related settings from the Property Pages of the project.">
+</Event><Event ErrorLevel="1" Project="pslq_test" Source="pslq_test.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="pslq_test" Source="pslq_test.vcproj" Description="Web deployment to the local IIS server is no longer supported. The Web Deployment build tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="pslq_test" Source="pslq_test.vcproj" Description="Done converting to new project file 'C:\usr\QD\qd_2.3.4_windll\pslq_test.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="pslq_test" Source="pslq_test.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="quadt_test" Source="quadt_test.vcproj" Description="Converting project file 'C:\usr\QD\qd_2.3.4_windll\quadt_test.vcproj'.">
+</Event><Event ErrorLevel="1" Project="quadt_test" Source="quadt_test.vcproj" Description="This application has been updated to include settings related to the User Account Control (UAC) feature of Windows Vista. By default, when run on Windows Vista with UAC enabled, this application is marked to run with the same privileges as the process that launched it. This marking also disables the application from running with virtualization. You can change UAC related settings from the Property Pages of the project.">
+</Event><Event ErrorLevel="1" Project="quadt_test" Source="quadt_test.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="quadt_test" Source="quadt_test.vcproj" Description="Web deployment to the local IIS server is no longer supported. The Web Deployment build tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="quadt_test" Source="quadt_test.vcproj" Description="Done converting to new project file 'C:\usr\QD\qd_2.3.4_windll\quadt_test.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="quadt_test" Source="quadt_test.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="qd.sln" Description="ソリューションは正常に変換されました">
+</Event><Event ErrorLevel="3" Project="" Source="qd.sln" Description="Converted">
+</Event></UpgradeLog>

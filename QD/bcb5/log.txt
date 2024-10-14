@@ -1,0 +1,364 @@
+
+Testing dd_real ...
+sizeof(dd_real) = 16
+
+Test 1.  (Polynomial).
+Root Found:  x  = -7.1453772716733489700000161162586e-01
+           p(x) = -2.4651903288156618919116517665088e-32
+Test passed.
+
+Test 2.  (Machin's Formula for Pi).
+22 Iterations
+7 Iterations
+   pi = 3.1415926535897932384626433832795e+00
+  _pi = 3.1415926535897932384626433832795e+00
+error = 0 = 0 eps
+Test passed.
+
+Test 3.  (Salamin-Brent Quadratic Formula for Pi).
+Iteration  0: 4.0000000000000000000000000000000e+00
+Iteration  1: 3.1876726427121086272019299705254e+00
+         _pi: 3.1415926535897932384626433832795e+00
+       error: 0 = 0 eps
+Test passed.
+
+Test 4.  (Borwein Quartic Formula for Pi).
+Iteration  0: 2.9142135623730950488016887242087e+00
+Iteration  1: 3.1415926462135422821493444319819e+00
+         _pi: 3.1415926535897932384626433832795e+00
+       error: 0 = 0 eps
+Test passed.
+
+Test 5.  (Taylor Series Formula for E).
+    e = 2.7182818284590452353602874713526e+00
+   _e = 2.7182818284590452353602874713527e+00
+error = 0 = 0 eps
+29 iterations.
+Test passed.
+
+Test 6.  (Taylor Series Formula for Log 2).
+ log2 = 6.9314718055994530941723212145814e-01
+_log2 = 6.9314718055994530941723212145818e-01
+error = 0 = 0 eps
+104 iterations.
+Test passed.
+
+Test 7.  (Sanity check for exp).
+result = 7.3890560989306525873218531507963e+00
+exp(2) = 7.3890560989306502300658797655001e+00
+   e^2 = 7.3890560989306502272304274605750e+00
+ error = 0 = 0 eps
+Test passed.
+
+Test 8.  (Sanity check for sin / cos).
+  r1 = 8.6602543398823962438877342504699e-01
+  t1 = 8.6602540378443864676372317075290e-01
+  r2 = 4.9999994768547847597613042570074e-01
+  t2 = 5.0000000000000000000000000000000e-01
+ error = 0 = 0 eps
+Test passed.
+
+Testing qd_real ...
+sizeof(qd_real) = 32
+
+Test 1.  (Polynomial).
+Root Found:  x  = -7.14537727167334897000001611625853728729167441192053388713095053e-01
+           p(x) = -4.03561629194791446767612796456383179054391047928847661066890650e-65
+Test passed.
+
+Test 2.  (Machin's Formula for Pi).
+45 Iterations
+13 Iterations
+   pi = 3.14159265358979323846264338327950288419716939937510582097494459e+00
+  _pi = 3.14159265358979323846264338327950288419716939937510582097494459e+00
+error = 0 = 0 eps
+Test passed.
+
+Test 3.  (Salamin-Brent Quadratic Formula for Pi).
+Iteration  0: 4.00000000000000000000000000000000000000000000000000000000000000e+00
+Iteration  1: 3.18767264271210862720192997052536923265105357185936922648763399e+00
+         _pi: 3.14159265358979323846264338327950288419716939937510582097494459e+00
+       error: 0 = 0 eps
+Test passed.
+
+Test 4.  (Borwein Quartic Formula for Pi).
+Iteration  0: 2.91421356237309504880168872420969807856967187537694807317667974e+00
+Iteration  1: 3.14159264621354228214934443198269577431443722334560279455953948e+00
+         _pi: 3.14159265358979323846264338327950288419716939937510582097494459e+00
+       error: 0 = 0 eps
+Test passed.
+
+Test 5.  (Taylor Series Formula for E).
+    e = 2.71828182845904523536028747135266249775724709369995957496696763e+00
+   _e = 2.71828182845904523536028747135266249775724709369995957496696763e+00
+error = 0 = 0 eps
+49 iterations.
+Test passed.
+
+Test 6.  (Taylor Series Formula for Log 2).
+ log2 = 6.93147180559945309417232121458176568075500134360255254120680009e-01
+_log2 = 6.93147180559945309417232121458176568075500134360255254120680010e-01
+error = 0 = 0 eps
+209 iterations.
+Test passed.
+
+Test 7.  (Sanity check for exp).
+result = 7.38905609893065019924750445333032916902725710003519812129197167e+00
+exp(2) = 7.38905609893065022718686333450797346762348110045887307413503852e+00
+   e^2 = 7.38905609893065022723042746057500781318031557055184732408712782e+00
+ error = 0 = 0 eps
+Test passed.
+
+Test 8.  (Sanity check for sin / cos).
+  r1 = 8.66025403784438674777190266002626705581960260964478338569529835e-01
+  t1 = 8.66025403784438646763723170752936183471402626905190314027903490e-01
+  r2 = 4.99999999999999951479251694868599182194984684568163648833977057e-01
+  t2 = 5.00000000000000000000000000000000000000000000000000000000000000e-01
+ error = 0 = 0 eps
+Test passed.
+Performing double-double precision PSLQ.
+  testing pslq_test(2, 2) ...
+    r = 3.1462643699419723423291350657155e+00
+    elapsed time = 0 seconds.
+    polynomial:                        1
+                                       0
+                                     -10
+                                       0
+                                       1
+    residual    = 8.3816e-30
+    error bound = 1.1981e-29
+  test passed.
+
+  testing pslq_test(2, 4) ...
+    r = 2.7302875753255875096209076260066e+00
+    elapsed time = 0.015 seconds.
+    polynomial:                        1
+                                       0
+                                    -104
+                                       0
+                                      18
+                                       0
+                                      -8
+                                       0
+                                       1
+    residual    = 1.8038e-28
+    error bound = 9.1508e-29
+  test passed.
+
+  testing pslq_test(2, 5) ...
+    r = 2.6599445019886123747683690608500e+00
+    elapsed time = 0.078 seconds.
+    polynomial:                       23
+                                     120
+                                     -80
+                                     120
+                                      80
+                                       6
+                                     -40
+                                       0
+                                      10
+                                       0
+                                      -1
+    residual    = 2.9819e-28
+    error bound = 6.4450e-28
+  test passed.
+
+Performing quad-double precision PSLQ.
+  testing pslq_test(2, 5) ...
+    r = 2.6599445019886123747683690608500e+00
+    elapsed time = 0.063 seconds.
+    polynomial:                       23
+                                     120
+                                     -80
+                                     120
+                                      80
+                                       6
+                                     -40
+                                       0
+                                      10
+                                       0
+                                      -1
+    residual    = 2.9819e-28
+    error bound = 6.4450e-28
+  test passed.
+
+  testing pslq_test(2, 6) ...
+    r = 2.61515051754909777547715411155924092486807929360293029819505113e+00
+    elapsed time = 1.687 seconds.
+    polynomial:                       25
+                                       0
+                                    -552
+                                       0
+                                      60
+                                       0
+                                    -166
+                                       0
+                                      60
+                                       0
+                                     -12
+                                       0
+                                       1
+    residual    = 1.2926e-60
+    error bound = 8.6514e-59
+  test passed.
+
+  testing pslq_test(2, 7) ...
+    r = 2.58414437513178193526466444972343274626907607179788228220689870e+00
+    elapsed time = 3.672 seconds.
+    polynomial:                      119
+                                     336
+                                    -448
+                                     840
+                                     672
+                                     252
+                                    -560
+                                       6
+                                     280
+                                       0
+                                     -84
+                                       0
+                                      14
+                                       0
+                                      -1
+    residual    = 1.0216e-59
+    error bound = 5.6522e-58
+  test passed.
+
+  testing pslq_test(3, 5) ...
+    r = 2.50565198951039049073389094391853343150956145777028779112814813e+00
+    elapsed time = 5.687 seconds.
+    polynomial:                      -59
+                                    -360
+                                    -540
+                                      80
+                                   -1620
+                                      27
+                                     -80
+                                    -540
+                                       0
+                                      40
+                                      -9
+                                       0
+                                      -1
+                                       0
+                                       0
+                                       1
+    residual    = 1.3773e-58
+    error bound = 8.6870e-58
+  test passed.
+
+All tests passed.
+
+Timing dd_real
+--------------
+
+Timing addition...
+n = 100000   t = 0.031
+r = 3.695128e+04
+400000 operations in 0.031 s.
+  0.077500 us   12.9032 mop/s
+
+Timing multiplication ...
+n = 100000   t = 0.0470
+r = 84.7856
+400000 operations in 0.0470 s.
+  0.117500 us    8.5106 mop/s
+
+Timing division ...
+n = 100000   t = 0.1250
+r = 0.5713
+400000 operations in 0.1250 s.
+  0.312500 us    3.2000 mop/s
+
+Timing square root ...
+n = 10000   t = 0.0160
+r = 11.6645
+40000 operations in 0.0160 s.
+  0.400000 us    2.5000 mop/s
+
+Timing sin ...
+n = 4000   t = 0.0150
+r = 848.8260
+4000 operations in 0.0150 s.
+  3.750000 us    0.2667 mop/s
+
+Timing log ...
+n = 1000   t = 0.0000
+a = -50.1000
+1000 operations in 0.0000 s.
+  0.000000 us10000000000.0000 mop/s
+
+Timing dot ...
+n = 100000   t = 0.1250
+r = 16841.3025
+800000 operations in 0.1250 s.
+  0.156250 us    6.4000 mop/s
+
+Timing exp ...
+n = 1000   t = 0.0000
+a = 14766.5626
+1000 operations in 0.0000 s.
+  0.000000 us9090909090.9091 mop/s
+
+Timing cos ...
+n = 4000   t = 0.0160
+r = -1.0000
+4000 operations in 0.0160 s.
+  4.000000 us    0.2500 mop/s
+
+Timing qd_real
+--------------
+
+Timing addition...
+n = 100000   t = 0.2970
+r = 36951.2840
+400000 operations in 0.2970 s.
+  0.742500 us    1.3468 mop/s
+
+Timing multiplication ...
+n = 100000   t = 0.5620
+r = 84.7856
+400000 operations in 0.5620 s.
+  1.405000 us    0.7117 mop/s
+
+Timing division ...
+n = 100000   t = 1.5630
+r = 0.5713
+400000 operations in 1.5630 s.
+  3.907500 us    0.2559 mop/s
+
+Timing square root ...
+n = 10000   t = 0.5790
+r = 11.6645
+40000 operations in 0.5790 s.
+ 14.475000 us    0.0691 mop/s
+
+Timing sin ...
+n = 4000   t = 0.1710
+r = 848.8260
+4000 operations in 0.1710 s.
+ 42.750000 us    0.0234 mop/s
+
+Timing log ...
+n = 1000   t = 0.1410
+a = -50.1000
+1000 operations in 0.1410 s.
+141.000000 us    0.0071 mop/s
+
+Timing dot ...
+n = 100000   t = 0.7810
+r = 16841.3025
+800000 operations in 0.7810 s.
+  0.976250 us    1.0243 mop/s
+
+Timing exp ...
+n = 1000   t = 0.0470
+a = 14766.5626
+1000 operations in 0.0470 s.
+ 47.000000 us    0.0213 mop/s
+
+Timing cos ...
+n = 4000   t = 0.1720
+r = -0.1000
+4000 operations in 0.1720 s.
+ 43.000000 us    0.0233 mop/s

@@ -1,0 +1,7 @@
+USEUNIT("..\qd_2.3.4_windll\tests\qd_timer.cpp");
+USELIB("lib\qd.lib");
+USEUNIT("..\qd_2.3.4_windll\tests\tictoc.cpp");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+main

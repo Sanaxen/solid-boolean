@@ -1,0 +1,14 @@
+USEUNIT("qdUnit1.cpp");
+USEUNIT("..\qd_2.3.4_windll\src\bits.cpp");
+USEUNIT("..\qd_2.3.4_windll\src\c_dd.cpp");
+USEUNIT("..\qd_2.3.4_windll\src\c_qd.cpp");
+USEUNIT("..\qd_2.3.4_windll\src\dd_const.cpp");
+USEUNIT("..\qd_2.3.4_windll\src\dd_real.cpp");
+USEUNIT("..\qd_2.3.4_windll\src\fpu.cpp");
+USEUNIT("..\qd_2.3.4_windll\src\qd_const.cpp");
+USEUNIT("..\qd_2.3.4_windll\src\qd_real.cpp");
+USEUNIT("..\qd_2.3.4_windll\src\util.cpp");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+DllEntryPoint
