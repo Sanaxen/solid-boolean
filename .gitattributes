@@ -1,0 +1,8 @@
+*.Pawn linguist-language=C
+*.pawn linguist-language=C
+*.pwn linguist-language=C
+
+	
+*.txt text eol=crlf
+*.bat text eol=crlf
+
