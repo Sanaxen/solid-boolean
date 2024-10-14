@@ -1,6 +1,5 @@
-*.Pawn linguist-language=C
-*.pawn linguist-language=C
-*.pwn linguist-language=C
+*.Roff linguist-language=C++
+*.roff linguist-language=C++
 
 	
 *.txt text eol=crlf
