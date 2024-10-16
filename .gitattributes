@@ -1,6 +1,6 @@
 *.Roff linguist-language=cpp
 *.roff linguist-language=cpp
-
+*.bpf linguist-language=cpp
 	
 *.txt text eol=crlf
 *.bat text eol=crlf
