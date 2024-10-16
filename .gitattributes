@@ -1,5 +1,5 @@
-*.Roff linguist-language=C++
-*.roff linguist-language=C++
+*.Roff linguist-language=cpp
+*.roff linguist-language=cpp
 
 	
 *.txt text eol=crlf
