@@ -1,7 +1,7 @@
-*.Roff linguist-language=cpp
-*.roff linguist-language=cpp
-*.bpf linguist-language=cpp
-	
+*.1 linguist-language=cpp
+*.2 linguist-language=cpp
+*.3 linguist-language=cpp
+
 *.txt text eol=crlf
 *.bat text eol=crlf
 
