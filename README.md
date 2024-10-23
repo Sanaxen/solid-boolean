@@ -1,3 +1,5 @@
+<center><img src=./images/image00.png width=100%></center>
+
 # **csg**  
 ## Boolean operations on polygon meshes  
 Boolean operations on 3D models (objects) are very difficult: I tried meshlab, VTK, CGAL, and other well-known tools, but nothing worked, and in some cases, depending on the correctness of the model topology, it crashed during execution.
